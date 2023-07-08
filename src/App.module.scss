@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 64px;
+}
+
+.sets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
