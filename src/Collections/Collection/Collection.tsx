@@ -1,4 +1,4 @@
-import Set from "./Sets/Set";
+import Set from "./Set/Set";
 
 import styles from "./Collection.module.scss";
 
