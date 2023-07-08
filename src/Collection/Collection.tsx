@@ -1,7 +1,7 @@
 import ashImage from "/ash.png";
-import Set from "./Collection/Sets/Set";
+import Set from "./Sets/Set";
 
-import styles from "./App.module.scss";
+import styles from "./Collection.module.scss";
 
 interface SetDetails {
   name: string;
@@ -96,7 +96,7 @@ const wotcSets: Sets = [
   },
 ];
 
-function App() {
+function Collection() {
   return (
     <>
       <div className={styles.nav}>
@@ -115,4 +115,4 @@ function App() {
   );
 }
 
-export default App;
+export default Collection;

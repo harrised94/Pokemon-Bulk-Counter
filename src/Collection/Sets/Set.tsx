@@ -1,4 +1,4 @@
-import Counters from "./Counters";
+import Counters from "./Counters/Counters";
 
 import styles from "./Set.module.scss";
 
