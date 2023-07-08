@@ -1,0 +1,21 @@
+.counters > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  button {
+    width: 200px;
+  }
+}
+
+.total {
+  text-align: left;
+  border-top: 1px solid black;
+  padding-top: 30px;
+}
+
+.clearButton {
+  width: 80px;
+  background-color: #ff5731;
+  color: white;
+}

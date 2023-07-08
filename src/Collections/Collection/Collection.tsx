@@ -1,4 +1,3 @@
-import ashImage from "/ash.png";
 import Set from "./Sets/Set";
 
 import styles from "./Collection.module.scss";
@@ -96,16 +95,14 @@ const wotcSets: Sets = [
   },
 ];
 
-function Collection() {
+interface CollectionProps {
+  collectionName: string;
+}
+
+function Collection({ collectionName }: CollectionProps) {
   return (
     <>
-      <div className={styles.nav}>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={ashImage} className="logo" alt="Pokemon" />
-        </a>
-        <h2>Pokemon Bulk Counter</h2>
-      </div>
-
+      <h3>{collectionName}</h3>
       <div className={styles.sets}>
         {wotcSets.map((set) => {
           return <Set set={set.name} imageUrl={set.symbol} />;

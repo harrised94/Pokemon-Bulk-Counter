@@ -10,7 +10,11 @@ interface SetProps {
 const Set = ({ set, imageUrl }: SetProps) => {
   return (
     <div className={styles.card}>
-      <Counters set={set} imageUrl={imageUrl} />
+      <div className={styles.setTitle}>
+        <h2>{set}</h2>
+        {imageUrl && <img src={imageUrl} className="setImage" height="46px" />}
+      </div>
+      <Counters />
     </div>
   );
 };
