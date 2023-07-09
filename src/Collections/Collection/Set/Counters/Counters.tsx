@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { InputNumber } from "antd";
+import common from "../../../../assets/rarity/common.png";
+import uncommon from "../../../../assets/rarity/uncommon.png";
+import rare from "../../../../assets/rarity/rare.png";
+import holo from "../../../../assets/rarity/holo.png";
 
 import styles from "./Counters.module.scss";
 
@@ -50,7 +54,16 @@ const Counters = ({ onTotalChange }: CountersProps) => {
   return (
     <div className={styles.counters}>
       <div>
-        <b>Common:</b>
+        <span>
+          <img
+            style={{ marginRight: "8px" }}
+            src={common}
+            alt="common rarity symbol"
+            width="10px"
+            height="10px"
+          />
+          <b>Common</b>
+        </span>
         <InputNumber
           size="small"
           min={0}
@@ -65,7 +78,16 @@ const Counters = ({ onTotalChange }: CountersProps) => {
         />
       </div>
       <div>
-        <b>Uncommon:</b>
+        <span>
+          <img
+            style={{ marginRight: "8px" }}
+            src={uncommon}
+            alt="uncommon rarity symbol"
+            width="10px"
+            height="10px"
+          />
+          <b>Uncommon</b>
+        </span>
         <InputNumber
           min={0}
           defaultValue={0}
@@ -79,7 +101,16 @@ const Counters = ({ onTotalChange }: CountersProps) => {
         />
       </div>
       <div>
-        <b>Rare:</b>
+        <span>
+          <img
+            style={{ marginRight: "8px" }}
+            src={rare}
+            alt="rare rarity symbol"
+            width="10px"
+            height="10px"
+          />
+          <b>Rare</b>
+        </span>
         <InputNumber
           min={0}
           defaultValue={0}
@@ -93,7 +124,16 @@ const Counters = ({ onTotalChange }: CountersProps) => {
         />
       </div>
       <div>
-        <b>Holo:</b>
+        <span>
+          <img
+            style={{ marginRight: "8px" }}
+            src={holo}
+            alt="holo rarity symbol"
+            width="10px"
+            height="10px"
+          />
+          <b>Holo</b>
+        </span>
         <InputNumber
           min={0}
           defaultValue={0}

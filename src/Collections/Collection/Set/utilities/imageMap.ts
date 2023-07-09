@@ -12,6 +12,9 @@ import LegendaryCollection from "../../../../assets/setSymbols/legendarycollecti
 import ExpeditionBaseSet from "../../../../assets/setSymbols/expeditionbaseset.png";
 import Aquapolis from "../../../../assets/setSymbols/aquapolis.png";
 import Skyridge from "../../../../assets/setSymbols/skyridge.png";
+import SouthernIslands from "../../../../assets/setSymbols/southernislands.png";
+import BestOfGame from "../../../../assets/setSymbols/bestofgame.png";
+import WizardsBlackStarPromos from "../../../../assets/setSymbols/wizardsblackstarpromos.png";
 
 // Continue for all other images...
 
@@ -31,5 +34,8 @@ export const imageMap: { [key: string]: string } = {
   expeditionbaseset: ExpeditionBaseSet,
   aquapolis: Aquapolis,
   skyridge: Skyridge,
+  southernislands: SouthernIslands,
+  bestofgame: BestOfGame,
+  wizardsblackstarpromos: WizardsBlackStarPromos,
   // ...
 };

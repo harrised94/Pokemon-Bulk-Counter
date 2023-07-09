@@ -22,7 +22,12 @@ function CollectionOptions({
   return (
     <div className={styles.selectOptions}>
       <Select
-        style={{ width: 200, textAlign: "left" }}
+        style={{
+          minWidth: 200,
+          maxWidth: "66%",
+          maxHeight: "32px",
+          textAlign: "left",
+        }}
         mode="multiple"
         showSearch
         optionFilterProp="children"
