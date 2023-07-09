@@ -16,7 +16,12 @@ const Set = ({ set }: SetProps) => {
       <div className={styles.setTitle}>
         <h2>{set}</h2>
         {set !== "Base Set" && (
-          <img src={imageMap[imageKey]} className="setImage" height="46px" />
+          <img
+            style={{ maxWidth: "50%" }}
+            src={imageMap[imageKey]}
+            className="setImage"
+            height="46px"
+          />
         )}
       </div>
       <Counters />

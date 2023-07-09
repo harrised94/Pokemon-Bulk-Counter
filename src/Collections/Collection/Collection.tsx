@@ -211,8 +211,6 @@ function Collection({ collectionName }: CollectionProps) {
   };
 
   const handleFilterSets = (value: string[]) => {
-    console.log("selectedOptions :", value);
-
     value.length > 0
       ? setSelectedSets(setsList.filter((set) => value.includes(set.value)))
       : setSelectedSets(setsList);
@@ -228,10 +226,10 @@ function Collection({ collectionName }: CollectionProps) {
               label: "Vintage",
               options: wotcSets,
             },
-            {
-              label: "Modern",
-              options: modernSets,
-            },
+            // {
+            //   label: "Modern",
+            //   options: modernSets,
+            // },
           ]}
           onSortSets={handleSortSets}
           onFilterSets={handleFilterSets}

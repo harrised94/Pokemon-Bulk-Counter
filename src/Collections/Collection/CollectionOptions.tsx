@@ -21,8 +21,6 @@ function CollectionOptions({
   onFilterSets,
   filterOptions,
 }: CollectionProps) {
-  console.log(filterOptions);
-
   return (
     <>
       <Select
