@@ -1,8 +1,8 @@
 import Set from "./Set/Set";
 
 import styles from "./Collection.module.scss";
-import { useState, useEffect } from "react";
-import { Select } from "antd";
+import { useState } from "react";
+
 import CollectionOptions from "./CollectionOptions";
 
 export interface SetDetails {
@@ -91,95 +91,95 @@ const wotcSets: Sets = [
   },
 ];
 
-const modernSets: Sets = [
-  {
-    value: "EX Ruby & Sapphire",
-    date: "2003-07-18",
-    symbol: "exruby&sapphire.png",
-  },
-  {
-    value: "EX Sandstorm",
-    date: "2003-09-18",
-    symbol: "exsandstorm.png",
-  },
-  {
-    value: "EX Dragon",
-    date: "2003-11-24",
-    symbol: "exdragon.png",
-  },
-  {
-    value: "EX Team Magma vs Team Aqua",
-    date: "2004-03-15",
-    symbol: "exteammagmavsteamaqua.png",
-  },
-  {
-    value: "EX Hidden Legends",
-    date: "2004-06-14",
-    symbol: "exhiddenlegends.png",
-  },
-  {
-    value: "EX FireRed & LeafGreen",
-    date: "2004-08-30",
-    symbol: "exfirered&leafgreen.png",
-  },
-  {
-    value: "EX Team Rocket Returns",
-    date: "2004-11-08",
-    symbol: "exteamrocketreturns.png",
-  },
-  {
-    value: "EX Deoxys",
-    date: "2005-02-14",
-    symbol: "exdeoxys.png",
-  },
-  {
-    value: "EX Emerald",
-    date: "2005-05-09",
-    symbol: "exemerald.png",
-  },
-  {
-    value: "EX Unseen Forces",
-    date: "2005-08-22",
-    symbol: "exunseenforces.png",
-  },
-  {
-    value: "EX Delta Species",
-    date: "2005-10-31",
-    symbol: "exdeltaspecies.png",
-  },
-  {
-    value: "EX Legend Maker",
-    date: "2006-02-13",
-    symbol: "exlegendmaker.png",
-  },
-  {
-    value: "EX Holon Phantoms",
-    date: "2006-05-03",
-    symbol: "exholonphantoms.png",
-  },
-  {
-    value: "EX Crystal Guardians",
-    date: "2006-08-30",
-    symbol: "excrystalguardians.png",
-  },
-  {
-    value: "EX Dragon Frontiers",
-    date: "2006-11-08",
-    symbol: "exdragonfrontiers.png",
-  },
-  {
-    value: "EX Power Keepers",
-    date: "2007-02-14",
-    symbol: "expowerkeepers.png",
-  },
-];
+// const modernSets: Sets = [
+//   {
+//     value: "EX Ruby & Sapphire",
+//     date: "2003-07-18",
+//     symbol: "exruby&sapphire.png",
+//   },
+//   {
+//     value: "EX Sandstorm",
+//     date: "2003-09-18",
+//     symbol: "exsandstorm.png",
+//   },
+//   {
+//     value: "EX Dragon",
+//     date: "2003-11-24",
+//     symbol: "exdragon.png",
+//   },
+//   {
+//     value: "EX Team Magma vs Team Aqua",
+//     date: "2004-03-15",
+//     symbol: "exteammagmavsteamaqua.png",
+//   },
+//   {
+//     value: "EX Hidden Legends",
+//     date: "2004-06-14",
+//     symbol: "exhiddenlegends.png",
+//   },
+//   {
+//     value: "EX FireRed & LeafGreen",
+//     date: "2004-08-30",
+//     symbol: "exfirered&leafgreen.png",
+//   },
+//   {
+//     value: "EX Team Rocket Returns",
+//     date: "2004-11-08",
+//     symbol: "exteamrocketreturns.png",
+//   },
+//   {
+//     value: "EX Deoxys",
+//     date: "2005-02-14",
+//     symbol: "exdeoxys.png",
+//   },
+//   {
+//     value: "EX Emerald",
+//     date: "2005-05-09",
+//     symbol: "exemerald.png",
+//   },
+//   {
+//     value: "EX Unseen Forces",
+//     date: "2005-08-22",
+//     symbol: "exunseenforces.png",
+//   },
+//   {
+//     value: "EX Delta Species",
+//     date: "2005-10-31",
+//     symbol: "exdeltaspecies.png",
+//   },
+//   {
+//     value: "EX Legend Maker",
+//     date: "2006-02-13",
+//     symbol: "exlegendmaker.png",
+//   },
+//   {
+//     value: "EX Holon Phantoms",
+//     date: "2006-05-03",
+//     symbol: "exholonphantoms.png",
+//   },
+//   {
+//     value: "EX Crystal Guardians",
+//     date: "2006-08-30",
+//     symbol: "excrystalguardians.png",
+//   },
+//   {
+//     value: "EX Dragon Frontiers",
+//     date: "2006-11-08",
+//     symbol: "exdragonfrontiers.png",
+//   },
+//   {
+//     value: "EX Power Keepers",
+//     date: "2007-02-14",
+//     symbol: "expowerkeepers.png",
+//   },
+// ];
 
 const setsList = wotcSets;
 
-const x = [
-  { manufacturer: "wotc", sets: wotcSets },
-  { manufacturer: "nintendo", sets: modernSets },
-];
+// const fullSetList = [
+//   { manufacturer: "wotc", sets: wotcSets },
+//   { manufacturer: "nintendo", sets: modernSets },
+// ];
 
 interface CollectionProps {
   collectionName: string;

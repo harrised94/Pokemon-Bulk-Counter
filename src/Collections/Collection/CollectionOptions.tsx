@@ -1,9 +1,5 @@
-import Set from "./Set/Set";
-
-import styles from "./Collection.module.scss";
-import { useState, useEffect } from "react";
 import { Select } from "antd";
-import { SetDetails, Sets } from "./Collection";
+import { SetDetails } from "./Collection";
 
 interface FilterOption {
   label: string;
