@@ -1,115 +1,259 @@
 import Set from "./Set/Set";
 
 import styles from "./Collection.module.scss";
+import { useState, useEffect } from "react";
+import { Select } from "antd";
+import CollectionOptions from "./CollectionOptions";
 
-interface SetDetails {
-  name: string;
+export interface SetDetails {
+  value: string;
   symbol?: string;
+  date: string;
 }
 
-type Sets = SetDetails[];
+export type Sets = SetDetails[];
 
 const wotcSets: Sets = [
-  { name: "Base Set" },
   {
-    name: "Jungle",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/6/69/Jungle_Logo.png",
+    value: "Base Set",
+    date: "1999-01-09",
+    symbol: "baseset.png",
   },
   {
-    name: "Fossil",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/7/7f/Fossil_Logo.png",
+    value: "Jungle",
+    date: "1999-06-16",
+    symbol: "jungle.png",
   },
   {
-    name: "Base Set 2",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/2/20/Base_Set_2_Logo.png",
+    value: "Fossil",
+    date: "1999-10-10",
+    symbol: "fossil.png",
   },
   {
-    name: "Team Rocket",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/5/5d/Team_Rocket_Logo.png",
+    value: "Base Set 2",
+    date: "2000-02-24",
+    symbol: "baseset2.png",
   },
   {
-    name: "Gym Heroes",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/1/1b/Gym_Heroes_Logo.png",
+    value: "Team Rocket",
+    date: "2000-04-24",
+    symbol: "teamrocket.png",
   },
   {
-    name: "Gym Challenge",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/e/e0/Gym_Challenge_Logo.png",
+    value: "Gym Heroes",
+    date: "2000-08-14",
+    symbol: "gymheroes.png",
   },
   {
-    name: "Neo Genesis",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/5/55/Neo_Genesis_Logo_EN.png",
+    value: "Gym Challenge",
+    date: "2000-10-16",
+    symbol: "gymchallenge.png",
   },
   {
-    name: "Neo Discovery",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/9/98/Neo_Discovery_Logo_EN.png",
+    value: "Neo Genesis",
+    date: "2000-12-16",
+    symbol: "neogenesis.png",
   },
   {
-    name: "Neo Revelation",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/4/49/Neo_Revelation_Logo_EN.png",
+    value: "Neo Discovery",
+    date: "2001-06-01",
+    symbol: "neodiscovery.png",
   },
   {
-    name: "Neo Destiny",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/1/18/Neo_Destiny_Logo_EN.png",
+    value: "Neo Revelation",
+    date: "2001-09-21",
+    symbol: "neorevelation.png",
   },
   {
-    name: "Legendary Collection",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/8/81/Legendary_Collection_Logo.png",
+    value: "Neo Destiny",
+    date: "2002-02-28",
+    symbol: "neodestiny.png",
   },
   {
-    name: "Expedition Base Set",
-    symbol: "https://archives.bulbagarden.net/media/upload/e/ed/E1_Logo_EN.png",
+    value: "Legendary Collection",
+    date: "2002-05-24",
+    symbol: "legendarycollection.png",
   },
   {
-    name: "Aquapolis",
-    symbol: "https://archives.bulbagarden.net/media/upload/0/0d/E2_Logo_EN.png",
+    value: "Expedition Base Set",
+    date: "2002-09-15",
+    symbol: "expeditionbaseset.png",
   },
   {
-    name: "Skyridge",
-    symbol: "https://archives.bulbagarden.net/media/upload/b/b8/E3_Logo_EN.png",
+    value: "Aquapolis",
+    date: "2003-01-15",
+    symbol: "aquapolis.png",
   },
   {
-    name: "Southern Islands",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/c/c4/SouthernIslandsLogo.png",
+    value: "Skyridge",
+    date: "2003-05-12",
+    symbol: "skyridge.png",
+  },
+];
+
+const modernSets: Sets = [
+  {
+    value: "EX Ruby & Sapphire",
+    date: "2003-07-18",
+    symbol: "exruby&sapphire.png",
   },
   {
-    name: "Wizards Black Star Promos",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/5/58/SetSymbolPromo.png",
+    value: "EX Sandstorm",
+    date: "2003-09-18",
+    symbol: "exsandstorm.png",
   },
   {
-    name: "Best of Game",
-    symbol:
-      "https://archives.bulbagarden.net/media/upload/9/9d/SetSymbolBest.png",
+    value: "EX Dragon",
+    date: "2003-11-24",
+    symbol: "exdragon.png",
   },
+  {
+    value: "EX Team Magma vs Team Aqua",
+    date: "2004-03-15",
+    symbol: "exteammagmavsteamaqua.png",
+  },
+  {
+    value: "EX Hidden Legends",
+    date: "2004-06-14",
+    symbol: "exhiddenlegends.png",
+  },
+  {
+    value: "EX FireRed & LeafGreen",
+    date: "2004-08-30",
+    symbol: "exfirered&leafgreen.png",
+  },
+  {
+    value: "EX Team Rocket Returns",
+    date: "2004-11-08",
+    symbol: "exteamrocketreturns.png",
+  },
+  {
+    value: "EX Deoxys",
+    date: "2005-02-14",
+    symbol: "exdeoxys.png",
+  },
+  {
+    value: "EX Emerald",
+    date: "2005-05-09",
+    symbol: "exemerald.png",
+  },
+  {
+    value: "EX Unseen Forces",
+    date: "2005-08-22",
+    symbol: "exunseenforces.png",
+  },
+  {
+    value: "EX Delta Species",
+    date: "2005-10-31",
+    symbol: "exdeltaspecies.png",
+  },
+  {
+    value: "EX Legend Maker",
+    date: "2006-02-13",
+    symbol: "exlegendmaker.png",
+  },
+  {
+    value: "EX Holon Phantoms",
+    date: "2006-05-03",
+    symbol: "exholonphantoms.png",
+  },
+  {
+    value: "EX Crystal Guardians",
+    date: "2006-08-30",
+    symbol: "excrystalguardians.png",
+  },
+  {
+    value: "EX Dragon Frontiers",
+    date: "2006-11-08",
+    symbol: "exdragonfrontiers.png",
+  },
+  {
+    value: "EX Power Keepers",
+    date: "2007-02-14",
+    symbol: "expowerkeepers.png",
+  },
+];
+
+const setsList = wotcSets;
+
+const x = [
+  { manufacturer: "wotc", sets: wotcSets },
+  { manufacturer: "nintendo", sets: modernSets },
 ];
 
 interface CollectionProps {
   collectionName: string;
 }
-
 function Collection({ collectionName }: CollectionProps) {
+  const [selectedSets, setSelectedSets] = useState<Sets>(setsList);
+
+  const handleSortSets = (value: string) => {
+    let sortedSets;
+
+    switch (value) {
+      case "Value Asc":
+        sortedSets = [...selectedSets].sort(sortByValueAsc);
+        break;
+      case "Value Desc":
+        sortedSets = [...selectedSets].sort(sortByValueDesc);
+        break;
+      case "Date Asc":
+        sortedSets = [...selectedSets].sort(sortByDateAsc);
+        break;
+      case "Date Desc":
+        sortedSets = [...selectedSets].sort(sortByDateDesc);
+        break;
+      default:
+        return;
+    }
+
+    setSelectedSets(sortedSets);
+  };
+
+  const handleFilterSets = (value: string[]) => {
+    console.log("selectedOptions :", value);
+
+    value.length > 0
+      ? setSelectedSets(setsList.filter((set) => value.includes(set.value)))
+      : setSelectedSets(setsList);
+  };
+
   return (
-    <>
+    <div className={styles.collection}>
       <h3>{collectionName}</h3>
+      <div className={styles.options}>
+        <CollectionOptions
+          filterOptions={[
+            {
+              label: "Vintage",
+              options: wotcSets,
+            },
+            {
+              label: "Modern",
+              options: modernSets,
+            },
+          ]}
+          onSortSets={handleSortSets}
+          onFilterSets={handleFilterSets}
+        />
+      </div>
       <div className={styles.sets}>
-        {wotcSets.map((set) => {
-          return <Set set={set.name} imageUrl={set.symbol} />;
+        {selectedSets.map((set) => {
+          return <Set set={set.value} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 
 export default Collection;
+
+//Helper functions
+const sortByValueAsc = (a: SetDetails, b: SetDetails) =>
+  a.value.localeCompare(b.value);
+const sortByValueDesc = (a: SetDetails, b: SetDetails) =>
+  b.value.localeCompare(a.value);
+const sortByDateAsc = (a: SetDetails, b: SetDetails) =>
+  a.date.localeCompare(b.date);
+const sortByDateDesc = (a: SetDetails, b: SetDetails) =>
+  b.date.localeCompare(a.date);

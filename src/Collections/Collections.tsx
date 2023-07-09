@@ -1,8 +1,7 @@
-import React from "react";
 import Collection from "./Collection/Collection";
 
 const Collections = () => {
-  return <Collection collectionName={"Ed's Collection"} />;
+  return <Collection collectionName={"Vintage Collection"} />;
 };
 
 export default Collections;

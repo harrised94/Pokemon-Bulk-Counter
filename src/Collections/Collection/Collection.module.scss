@@ -1,3 +1,13 @@
+.collection {
+  padding: 32px;
+
+  .options {
+    display: flex;
+    margin-bottom: 32px;
+    justify-content: space-between;
+  }
+}
+
 .sets {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
