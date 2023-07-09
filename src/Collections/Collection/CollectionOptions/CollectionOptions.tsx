@@ -1,5 +1,7 @@
 import { Select } from "antd";
-import { SetDetails } from "./Collection";
+import { SetDetails } from "../Collection";
+
+import styles from "./CollectionOptions.module.scss";
 
 interface FilterOption {
   label: string;
@@ -18,9 +20,9 @@ function CollectionOptions({
   filterOptions,
 }: CollectionProps) {
   return (
-    <>
+    <div className={styles.selectOptions}>
       <Select
-        style={{ width: 200 }}
+        style={{ width: 200, textAlign: "left" }}
         mode="multiple"
         showSearch
         optionFilterProp="children"
@@ -29,7 +31,7 @@ function CollectionOptions({
         placeholder="Filter Sets"
       />
       <Select
-        style={{ width: 200 }}
+        style={{ width: 200, textAlign: "left" }}
         showSearch
         onChange={onSortSets}
         options={[
@@ -40,7 +42,7 @@ function CollectionOptions({
         ]}
         placeholder="Sort Sets"
       />
-    </>
+    </div>
   );
 }
 

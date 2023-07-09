@@ -1,10 +1,17 @@
 .collection {
   padding: 32px;
 
-  .options {
+  .collectionDetails {
+    text-align: left;
     display: flex;
-    margin-bottom: 32px;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    margin-bottom: 32px;
+  }
+
+  .options {
+    margin-bottom: 32px;
   }
 }
 

@@ -3,7 +3,7 @@ import Set from "./Set/Set";
 import styles from "./Collection.module.scss";
 import { useState } from "react";
 
-import CollectionOptions from "./CollectionOptions";
+import CollectionOptions from "./CollectionOptions/CollectionOptions";
 
 export interface SetDetails {
   value: string;
@@ -186,6 +186,7 @@ interface CollectionProps {
 }
 function Collection({ collectionName }: CollectionProps) {
   const [selectedSets, setSelectedSets] = useState<Sets>(setsList);
+  const [collectionTotal, setCollectionTotal] = useState(0);
 
   const handleSortSets = (value: string) => {
     let sortedSets;
@@ -216,9 +217,16 @@ function Collection({ collectionName }: CollectionProps) {
       : setSelectedSets(setsList);
   };
 
+  const handleCollectionTotalChange = (change: number) => {
+    setCollectionTotal((prevTotal) => prevTotal + change);
+  };
+
   return (
     <div className={styles.collection}>
-      <h3>{collectionName}</h3>
+      <div className={styles.collectionDetails}>
+        <h3>{collectionName}</h3>
+        <p>Total Cards: {collectionTotal}</p>
+      </div>
       <div className={styles.options}>
         <CollectionOptions
           filterOptions={[
@@ -236,8 +244,14 @@ function Collection({ collectionName }: CollectionProps) {
         />
       </div>
       <div className={styles.sets}>
-        {selectedSets.map((set) => {
-          return <Set set={set.value} />;
+        {selectedSets.map((set, index) => {
+          return (
+            <Set
+              key={index}
+              onSetTotalChange={handleCollectionTotalChange}
+              set={set.value}
+            />
+          );
         })}
       </div>
     </div>
